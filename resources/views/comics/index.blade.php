@@ -4,6 +4,14 @@
 
 @section("content")
 @parent
-<h1>COMICS PAGE</h1>
 
+<div class="container py-3">
+    <div class="row">
+        @foreach($list_cards as $value)
+        <div class="col py-2">
+            <img src="{{ $value['thumb'] }}" alt="">
+        </div>
+        @endforeach
+    </div>
+</div>
 @endsection

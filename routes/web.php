@@ -20,8 +20,7 @@ Route::get('/', function () {
 
 
 Route::get('/comics', function () {
-    config("comics");
-
-    return view('comics/index ');
+    $dati_cards = config("comics");
+    return view('comics.index',["list_cards" => $dati_cards]);
 })->name("comics.index");
 
