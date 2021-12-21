@@ -8,7 +8,10 @@
             "text"=> "Comics",
             "route_name"=>"comics.index"
         ]
-    ]
+    ];
+
+
+    $route_name = Request::route()->getName();
 @endphp
 
 
@@ -26,7 +29,10 @@
 
         @foreach($nav_links as $value)
             <li class="nav-item">
-          <a class="nav-link active" href="{{ route($value['route_name']) }}">{{$value['text']}}</a>
+            @php
+              $active = strtok($route_name, '.') == strtok($value["route_name"], '.');
+            @endphp
+          <a class="nav-link  {{$active ? 'active' : ''}}" href="{{ route($value['route_name']) }}">{{$value['text']}}</a>
         </li>
         @endforeach
       </ul>
