@@ -9,7 +9,7 @@
     <div class="row">
         @foreach($list_cards as $value)
         <div class="col py-2">
-            <img src="{{ $value['thumb'] }}" alt="">
+            <a href="{{    route('comics.detail' , $value['id'])  }}"><img src="{{ $value['thumb'] }}" alt=""></a>
         </div>
         @endforeach
     </div>

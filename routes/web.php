@@ -21,6 +21,20 @@ Route::get('/', function () {
 
 Route::get('/comics', function () {
     $dati_cards = config("comics");
-    return view('comics.index',["list_cards" => $dati_cards]);
+    $dati_finali =[];
+    foreach($dati_cards as $index=>$card){
+        $card['id']=$index;
+        $dati_finali[]=$card;
+    }
+    return view('comics.index',["list_cards" => $dati_finali]);
 })->name("comics.index");
+
+
+
+Route::get("comics/{id?}", function($id){
+
+   $data = config("comics");
+   $card = $data[$id];
+   return view("comics.detail", ["card"=>$card]);
+})->name("comics.detail");
 

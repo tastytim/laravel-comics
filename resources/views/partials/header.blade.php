@@ -26,7 +26,7 @@
 
         @foreach($nav_links as $value)
             <li class="nav-item">
-          <a class="nav-link" href="{{ route($value['route_name']) }}">{{$value['text']}}</a>
+          <a class="nav-link active" href="{{ route($value['route_name']) }}">{{$value['text']}}</a>
         </li>
         @endforeach
       </ul>
